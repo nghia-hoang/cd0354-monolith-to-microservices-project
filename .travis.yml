@@ -1,55 +1,36 @@
-# Assuming the .travis.yml file is in the project directory, and there is a separate sub-directory for each service
-# Use either `docker-compose` or individual `docker build` commands
-# Build
-- docker build -t udagram-api-feed ./udagram-api-feed
-# Do similar for other three images
-# Tagging
-- docker tag udagram-api-feed nghiahv1/udagram-api-feed:v1
-# Do similar for other three images
-# Push
-# Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
-- echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
-- docker push nghiahv1/udagram-api-feed:v1
-# Do similar for other three images
+language: node_js
+node_js:
+  - 12
 
-# Assuming the .travis.yml file is in the project directory, and there is a separate sub-directory for each service
-# Use either `docker-compose` or individual `docker build` commands
-# Build
-- docker build -t udagram-api-user ./udagram-api-user
-# Do similar for other three images
-# Tagging
-- docker tag udagram-api-user nghiahv1/udagram-api-user:v1
-# Do similar for other three images
-# Push
-# Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
-- echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
-- docker push nghiahv1/udagram-api-user:v1
-# Do similar for other three images
+services:
+  - docker
 
-# Assuming the .travis.yml file is in the project directory, and there is a separate sub-directory for each service
-# Use either `docker-compose` or individual `docker build` commands
-# Build
-- docker build -t udagram-frontend ./udagram-frontend
-# Do similar for other three images
-# Tagging
-- docker tag udagram-frontend nghiahv1/udagram-frontend:v1
-# Do similar for other three images
-# Push
-# Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
-- echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
-- docker push nghiahv1/udagram-frontend:v1
-# Do similar for other three images
+# Pre-testing installs
+install:
+  - echo "nothing needs to be installed"
 
-# Assuming the .travis.yml file is in the project directory, and there is a separate sub-directory for each service
-# Use either `docker-compose` or individual `docker build` commands
-# Build
-- docker build -t udagram-reverseproxy ./udagram-reverseproxy
-# Do similar for other three images
-# Tagging
-- docker tag udagram-reverseproxy nghiahv1/udagram-reverseproxy:v1
-# Do similar for other three images
-# Push
-# Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
-- echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
-- docker push nghiahv1/udagram-reverseproxy:v1
-# Do similar for other three images
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  - docker build -t udagram-reverseproxy ./udagram-reverseproxy
+  - docker tag udagram-reverseproxy nghiahv1/udagram-reverseproxy:latest
+  # Build
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker tag udagram-api-feed nghiahv1/udagram-api-feed:latest
+  - docker build -t udagram-api-user ./udagram-api-user
+  - docker tag udagram-api-user nghiahv1/udagram-api-user:latest
+  - docker build -t udagram-frontend ./udagram-frontend
+  - docker tag udagram-frontend nghiahv1/udagram-frontend:latest
+
+after_success:
+  - echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
+  - docker push nghiahv1/udagram-reverseproxy:latest
+  - echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
+  - docker push nghiahv1/udagram-api-feed:latest
+  - echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
+  - docker push nghiahv1/udagram-api-user:latest
+  - echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
+  - docker push nghiahv1/udagram-frontend:v1
