@@ -25,7 +25,7 @@ script:
   - docker tag udagram-frontend nghiahv1/udagram-frontend:v1
 
 after_success:
-  - echo "Hvn@0986015284" | docker login -u "jossnghia@gmail.com" --password-stdin
+  - echo "Hvn@0986015284" | docker login -u "nghiahv1" --password-stdin
   - docker push nghiahv1/udagram-reverseproxy:v1
   - docker push nghiahv1/udagram-api-feed:v1
   - docker push nghiahv1/udagram-api-user:v1
