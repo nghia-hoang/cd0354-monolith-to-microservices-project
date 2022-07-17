@@ -12,4 +12,4 @@ spec:
     name: http
   selector:
     app: nginx-deployment
-  type: ClusterIP
+  type: LoadBalancer
