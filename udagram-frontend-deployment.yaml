@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: udagram-frontend-deployment
-        image: udagram-frontend:v1
+        image: nghiahv1/udagram-frontend:v1
         ports:
         - containerPort: 8100

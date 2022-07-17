@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: udagram-reverseproxy-deployment
-        image: udagram-reverseproxy:v1
+        image: nghiahv1/udagram-reverseproxy:v1
         ports:
         - containerPort: 80

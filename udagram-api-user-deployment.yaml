@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: udagram-api-user-deployment
-        image: udagram-api-user:v1
+        image: nghiahv1/udagram-api-user:v1
         ports:
         - containerPort: 8080
