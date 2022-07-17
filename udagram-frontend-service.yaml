@@ -4,7 +4,11 @@ metadata:
   name: udagram-frontend-svc
 spec:
   ports:
-  - port: 8100
+  # port bên ngoài của pods mà các pods có thể giao tiếp được với nhau
+  - port: 80
+  # port target với 8080 của deployment
+    targetPort: 8100
     protocol: TCP
+    name: http
   selector:
     app: frontend-deployment

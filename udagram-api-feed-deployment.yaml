@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: udagram-api-feed-deployment
   labels:
-    app: nodeapp
+    app: udagram-api-feed
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nodeapp
+      app: udagram-api-feed
   template:
     metadata:
       labels:
-        app: nodeapp
+        app: udagram-api-feed
     spec:
       containers:
       - name: udagram-api-feed-deployment
