@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: udagram-reverseproxy-deployment
-  labels:
-    run: udagram-reverseproxy-deployment
+  name: udagram-reverseproxy-svc
 spec:
   ports:
   - port: 80
     protocol: TCP
   selector:
-    run: udagram-reverseproxy-deployment
+    app: nginx-deployment
+  type: ClusterIP

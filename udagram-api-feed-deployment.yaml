@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: udagram-api-feed-deployment
-        image: udagram-api-feed:v1
+        image: nghiahv1/udagram-api-feed:v1
         ports:
         - containerPort: 8080
