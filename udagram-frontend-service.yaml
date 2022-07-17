@@ -3,11 +3,12 @@ kind: Service
 metadata:
   name: udagram-frontend-svc
 spec:
+  type: LoadBalancer
   ports:
   # port bên ngoài của pods mà các pods có thể giao tiếp được với nhau
   - port: 80
-  # port target với 8080 của deployment
-    targetPort: 8100
+  # port target với 8100 của deployment
+    targetPort: 80
     protocol: TCP
     name: http
   selector:
