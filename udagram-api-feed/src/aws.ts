@@ -31,6 +31,7 @@ export function getPutSignedUrl( key: string ): string {
     Key: key,
     Expires: signedUrlExpireSeconds,
   });
+  console.log(config.aws_media_bucket);
   console.log(test);
   return s3.getSignedUrl('putObject', {
     Bucket: config.aws_media_bucket,
