@@ -19,3 +19,9 @@ spec:
         image: nghiahv1/udagram-frontend:v2
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m

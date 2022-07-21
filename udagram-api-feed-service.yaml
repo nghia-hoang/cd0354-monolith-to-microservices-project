@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
   # port bên ngoài của pods mà các pods có thể giao tiếp được với nhau
-  - port: 80
+  - port: 8080
   # port target với 8080 của deployment
     targetPort: 8080
     protocol: TCP
