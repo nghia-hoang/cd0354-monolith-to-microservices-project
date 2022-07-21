@@ -20,8 +20,13 @@ spec:
         ports:
         - containerPort: 8080
         envFrom: # using envFrom instead of env
-          # - secretRef: # use secretRef instead of env configMapRef
-          #     name: mysecret # name of the Secret
+          - secretRef: # use secretRef instead of env configMapRef
+              name: mysecret # name of the Secret
           - configMapRef: # referencing the ConfigMap
               name: config-secret # name of the ConfigMap
           #prefix: POSTGRES_  All environment variables will be prefixed with POSTGRES_
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m

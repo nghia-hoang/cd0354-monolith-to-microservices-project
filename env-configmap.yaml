@@ -4,8 +4,8 @@ metadata:
   name: config-secret
 data:
   POSTGRES_HOST: nghiatest.cartndvtlykb.us-east-1.rds.amazonaws.com
-  POSTGRES_USERNAME: postgres
-  POSTGRES_PASSWORD: hvn12345
+  # POSTGRES_USERNAME: postgres
+  # POSTGRES_PASSWORD: hvn12345
   POSTGRES_DB: postgres
   AWS_BUCKET: mys3nghia
   AWS_REGION: us-east-1
